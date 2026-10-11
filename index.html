@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-:root{--foto:url('portada4.jpg');--azul:#24506f;--noche:#2b7bb9;--cielo:#7ec8f0;--blanco:#fff;--plata:#c0c8d0;--plata-claro:#e6eaee;--plata-osc:#9aa5b1;--metal:linear-gradient(135deg,#f4f6f8 0%,#c0c8d0 45%,#e9edf0 70%,#a9b3be 100%)}
+:root{--foto:url('portada5.jpeg');--azul:#24506f;--noche:#2b7bb9;--cielo:#7ec8f0;--blanco:#fff;--plata:#c0c8d0;--plata-claro:#e6eaee;--plata-osc:#9aa5b1;--metal:linear-gradient(135deg,#f4f6f8 0%,#c0c8d0 45%,#e9edf0 70%,#a9b3be 100%)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:Montserrat,sans-serif;color:var(--azul);background:#fff;display:flex;justify-content:center}
@@ -153,9 +153,9 @@ section.plata .btn.lleno,section.plata .asis .btn.sel{background:linear-gradient
 section.plata .asis .btn:not(.sel){background:linear-gradient(135deg,#f4f6f8 0%,#d3d9df 100%);color:#4a5663;border:1.5px solid #9aa5b1;box-shadow:none}
 
 /* CELESTE INTERMEDIO (secciones celestes): editar estos 3 colores para ajustar el tono */
-.oscuro{--c1:#9ccae6;--c2:#74abd0;--c3:#5790b6;color:#fff;text-shadow:0 1px 8px rgba(10,50,90,.28);background:radial-gradient(circle at 70% 20%,var(--c1) 0,var(--c2) 45%,var(--c3) 100%)}
-/* SECCIONES CLARAS = fondo #cfe1ef (celeste suave) con letras gris acero (editar --txt y --ico para ajustar) */
-section.blanca{--txt:#4a5663;--ico:#66737f;background:#cfe1ef;color:var(--txt);text-shadow:none}
+.oscuro{--c1:#8DC8E6;--c2:#72B1D3;--c3:#64A3C8;color:#fff;text-shadow:0 1px 8px rgba(10,50,90,.28);background:radial-gradient(circle at 70% 20%,var(--c1) 0,var(--c2) 45%,var(--c3) 100%)}
+/* SECCIONES CLARAS = fondo #cfe1ef (celeste #72B1D3) con letras gris acero (editar --txt y --ico para ajustar) */
+section.blanca{--txt:#4a5663;--ico:#66737f;background:linear-gradient(160deg,#8DC8E6 0%,#72B1D3 55%,#64A3C8 100%);color:var(--txt);text-shadow:none}
 section.blanca h1,section.blanca h2,section.blanca h3{background:none;color:#3f4a56;-webkit-text-fill-color:#3f4a56}
 section.blanca .icono{color:var(--ico)}
 section.blanca select,section.blanca input{color:#5d6a78;border-color:rgba(123,134,147,.6)}
@@ -169,7 +169,7 @@ section.blanca .btn.lleno,section.blanca .asis .btn.sel,section.blanca #ingresar
 .hero h1,.hero .nombre,.cuenta{text-shadow:0 2px 12px rgba(8,40,72,.5)}
 .cuenta span{font-weight:600;text-shadow:0 1px 6px rgba(8,40,72,.7)}
 .hero .mariposa,.banner .mariposa{opacity:.95;filter:drop-shadow(0 2px 6px rgba(18,62,104,.45))}
-.cierre .banner{color:#fff;background:radial-gradient(ellipse at 50% 50%,rgba(18,62,104,.72) 0%,rgba(18,62,104,.55) 55%,rgba(18,62,104,.38) 100%),var(--foto) center top/cover no-repeat}
+.cierre .banner{color:#fff;background:radial-gradient(ellipse at 50% 45%,rgba(18,62,104,.58) 0%,rgba(18,62,104,.34) 55%,rgba(18,62,104,0) 100%),var(--foto) center/cover no-repeat}
 .banner h2{font-weight:500;text-shadow:0 2px 14px rgba(8,40,72,.9),0 0 3px rgba(8,40,72,.55)}
 .banner .mariposa:nth-of-type(1){width:70px!important;left:2%!important;top:4%!important}
 .banner .mariposa:nth-of-type(2){width:52px!important;right:3%!important;bottom:5%!important}
@@ -201,6 +201,15 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
 @keyframes centella{0%,100%{opacity:.2}50%{opacity:1}}
 .camara4 .c4-boton{transform-box:fill-box;transform-origin:center;animation:presiona 3.6s ease-in-out infinite}
 @keyframes presiona{0%,60%,100%{transform:scale(1)}70%{transform:scale(.4)}80%{transform:scale(1.2)}}
+/* BORDE PLATEADO ENTRE SECCIONES */
+.tarjeta > section.hero ~ section{border-top:2px solid #c0c8d0}
+/* EFECTO PORTADA: el texto aparece palabra por palabra */
+#portada p .w{display:inline-block;opacity:0;transform:translateY(12px);filter:blur(4px);animation:aparece 1s ease forwards;animation-delay:calc(var(--i)*.22s + .5s)}
+#portada #ingresar{opacity:0;animation:apareceBtn 1s ease forwards;animation-delay:var(--btn,2.5s)}
+@keyframes aparece{to{opacity:1;transform:none;filter:none}}
+@keyframes apareceBtn{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){#portada p .w,#portada #ingresar{animation:none;opacity:1;transform:none;filter:none}}
+body.bloqueado #musica{display:none}
 </style>
 </head>
 
@@ -224,9 +233,9 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
 
   <!-- BIENVENIDA -->
   <section class="oscuro hero">
-    <svg class="mariposa m1"><use href="#mariposa"/></svg>
+    <!--svg class="mariposa m1"><use href="#mariposa"/></svg>
     <svg class="mariposa m2"><use href="#mariposa"/></svg>
-    <svg class="mariposa m3"><use href="#mariposa"/></svg>
+    <svg class="mariposa m3"><use href="#mariposa"/></svg-->
     <h1>MIS <b>XV</b></h1>
     <h2 class="script nombre">Martina</h2>
     <div class="cuenta">
@@ -238,7 +247,7 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
   </section>
 
   <!-- CUÁNDO -->
-  <section class="plata">
+  <section class="blanca">
     <div class="dato">
       <svg class="icono" viewBox="0 0 64 64" aria-hidden="true">
         <g class="calendario">
@@ -255,7 +264,7 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
   </section>
 
   <!-- DÓNDE -->
-  <section class="blanca">
+  <section class="plata">
     <div class="dato">
       <svg class="icono" viewBox="0 0 64 64" aria-hidden="true">
         <g class="pin">
@@ -270,9 +279,9 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
     </div>
   </section>
 
-  <section class="plata frase">
+  <!--section class="plata frase">
     <p class="script">La felicidad solo es real cuando se comparte</p>
-  </section>
+  </section-->
 
   <!-- DRESS CODE -->
   <section class="blanca">
@@ -349,9 +358,9 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
     </div>
   </section>
 
-  <section class="plata frase">
+  <!--section class="plata frase">
     <p class="frase-sub">¡TE INVITO A CELEBRAR UNA NOCHE<b> INOLVIDABLE</b>!</p>
-  </section>
+  </section-->
 
   <!-- CONFIRMAR ASISTENCIA (se guarda en Google Sheets) -->
   <section class="plata">
@@ -375,8 +384,8 @@ section.plata #ingresar{background:linear-gradient(135deg,#8a96a4 0%,#56626f 50%
   <!-- TE ESPERO -->
   <section class="blanca cierre" >
     <div class="banner oscuro">
-      <svg class="mariposa" style="top:8%;left:4%;width:120px"><use href="#mariposa"/></svg>
-      <svg class="mariposa" style="bottom:6%;right:6%;width:70px;animation-delay:-3s"><use href="#mariposa"/></svg>
+      <svg class="mariposa" style="top:8%;left:4%;width:120px"><use href=""/></svg>
+      <svg class="mariposa" style="bottom:6%;right:6%;width:70px;animation-delay:-3s"><use href=""/></svg>
       <h2>TE ESPERO</h2>
     </div>
   </section>
@@ -416,6 +425,20 @@ tick(); setInterval(tick,1000);
 
 // Música
 const audio = $('audio'), bm = $('musica');
+// Portada: el texto aparece palabra por palabra
+(function(){
+  const p = document.querySelector('#portada p');
+  if (!p) return;
+  const palabras = p.textContent.trim().split(/\s+/);
+  p.textContent = '';
+  palabras.forEach((t, i) => {
+    const w = document.createElement('span');
+    w.className = 'w'; w.textContent = t; w.style.setProperty('--i', i);
+    p.appendChild(w);
+    if (i < palabras.length - 1) p.appendChild(document.createTextNode(' '));
+  });
+  document.getElementById('portada').style.setProperty('--btn', (palabras.length * 0.22 + 1.1) + 's');
+})();
 // Portada: INGRESAR muestra la invitación y activa la música
 $('ingresar').onclick = () => {
   audio.play().then(() => { bm.textContent = '❚❚'; }).catch(() => {});
